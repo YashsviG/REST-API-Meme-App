@@ -18,6 +18,12 @@
         .container {
         padding: 2px 16px;
         }
+        input[type=submit]
+        {
+            background-color: white;
+            border: 0px;
+
+        }
 </style>
 <!-- show a gif passed from the route -->
 <nav class="navbar navbar-light bg-info">
@@ -44,9 +50,9 @@
                     
                         <div class="container">
                             <form method="post" action="/delete/{{this.id}}">
-                                <p><b><input type ="submit" id ="{{this.id}}" value ="Delete"><i class="fa fa-edit"></i></input></b></p>
+                                <p><i class="fa fa-trash"></i><input type ="submit" id ="{{this.id}}" value ="Delete"></input></p>
                             </form>
-                            <p><b><i class="fa fa-trash"></i> Delete</b></p>
+                            <p><i class="fa fa-edit"></i><input type ="submit" id ="{{this.id}}" value ="Edit"></input></p>
                         </div>
                     
                 </div>
