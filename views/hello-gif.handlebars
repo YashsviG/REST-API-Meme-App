@@ -25,35 +25,33 @@
 </nav>
 <!--/.Navbar-->
 <div class ="container-fluid" style="display: flex; flex-flow: row wrap;" >
-
     <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Meme App</span>
+        <span class="navbar-brand mb-0 h1">Meme App</span>
     </nav>
     <!--/.Navbar-->
-<center>
-    <div class ="row">
-        
-{{#each gifs}}
-    <div class="col-sm-6 col-md-4 col-lg-3" style="flex: 0 0 33.333%;
-  display: flex;">
-    <div class="card" style="margin: 2%;">
-        
-        <div class="container">
-            <h5><b>{{this.title}}</b></h5>
-            <p>{{this.user.username}}r</p>
-        </div>
-        <img src="{{this.images.fixed_height.url}}" alt="">
+    <center>
+        <div class ="row">
+            {{#each gifs}}
+            <div class="col-sm-6 col-md-4 col-lg-3" style="flex: 0 0 33.333%;display: flex;">
+                <div class="card" style="margin: 2%;">
+                    
+                    <div class="container">
+                        <h5><b>{{this.title}}</b></h5>
+                        <p>{{this.user.username}}r</p>
+                    </div>
+                    <img src="{{this.images.fixed_height.url}}" alt="">
 
-        <div class="container">
-            <p><b><i class="fa fa-edit"></i> Edit</b></p>
-            <p><b><i class="fa fa-trash"></i> Delete</b></p>
+                    
+                        <div class="container">
+                            <form method="post" action="/delete/{{this.id}}">
+                                <p><b><input type ="submit" id ="{{this.id}}" value ="Delete"><i class="fa fa-edit"></i></input></b></p>
+                            </form>
+                            <p><b><i class="fa fa-trash"></i> Delete</b></p>
+                        </div>
+                    
+                </div>
+            </div>
+            {{/each}}
         </div>
-        
-    </div>
-    </div>
-    
-    {{/each}}
-{{!-- <img src="{{gifUrl}}"> --}}
-</div>
-</center>
+    </center>
 </div>
