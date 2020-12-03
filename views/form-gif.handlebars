@@ -24,6 +24,11 @@
             border: 0px;
 
         }
+        input[type=text]
+        {
+            margin: 1%;
+            padding: 0.5%;
+        }
 </style>
 <!-- show a gif passed from the route -->
 <nav class="navbar navbar-light bg-info">
@@ -31,31 +36,32 @@
 </nav>
 <!--/.Navbar-->
 <div class ="container-fluid" style="display: flex; flex-flow: row wrap;" >
-    <center>
-        <div class ="row">
+    
+        <div class ="row" style="margin: auto;">
             {{#each gifs}}
-            <div class="col-sm-6 col-md-4 col-lg-3" style="flex: 0 0 33.333%;display: flex;">
+            <center>
                 <div class="card" style="margin: 2%;">
                     
-                    <div class="container">
-                        <h5><b>{{this.title}}</b></h5>
-                        <p>{{this.user.username}}</p>
+                    <div class="container-fluid">
+                        <input type ="text" value ="{{this.title}}">
+                        <input type ="text" value ="{{this.user.username}}">
                     </div>
+                    
+                    <input type ="text" placeholder="Change picture"/>
                     <img src="{{this.images.fixed_height.url}}" alt="">
 
                     
                         <div class="container">
-                            <form method="post" action="/delete/{{this.id}}">
-                                <p><i class="fa fa-trash"></i><input type ="submit" id ="{{this.id}}" value ="Delete"></input></p>
+                            <form method="post" action="/edit">
+                               <p><i class="fa fa-edit"></i><input type ="submit" id ="{{this.id}}" value ="Save"></input></p>
                             </form>
-                            <form method="post" action="/edit/{{this.id}}">
-                                <p><i class="fa fa-edit"></i><input type ="submit" id ="{{this.id}}" value ="Edit"></input></p>
-                            </form>
+                            
                         </div>
                     
                 </div>
-            </div>
+                </center>
+
             {{/each}}
         </div>
-    </center>
+
 </div>

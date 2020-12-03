@@ -37,7 +37,6 @@ app.get('/', (req, res) => {
 // DELETE OPERATION --> POST METHOD
 app.post('/delete/:id', function (req, res) {
     const ID  = req.params.id;
-    var arrayID = [];
     
     for(var i = 0; i < parsed.data.length; i++) {
       if(parsed.data[i].id == ID) {
@@ -52,8 +51,6 @@ app.post('/delete/:id', function (req, res) {
 // TO BE DONE
 app.post('/edit/:id', function (req, res) {
   const ID  = req.params.id;
-  var arrayID = [];
-  
   
   for(var i = 0; i < parsed.data.length; i++) {
     if(parsed.data[i].id == ID) {
@@ -62,7 +59,7 @@ app.post('/edit/:id', function (req, res) {
     }
   }
       // RENDER THE TEMPLATE AND PASS THE GIF DATA IN TO THE TEMPLATE
-       res.render('hello-gif', { gifs: parsed.data })
+       res.render('form-gif', { gifs: x })
 })
 // Start Server
 app.listen(7000, () => {
