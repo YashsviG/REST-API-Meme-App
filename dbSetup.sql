@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS `User` (
+    id int(10) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS `MemePage` (
+    id int(10) NOT NULL AUTO_INCREMENT,
+    author_id int(10) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(65535),
+    PRIMARY KEY(id),
+    FOREIGN KEY (author_id) REFERENCES User(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS `Memes` (
+    id int(10) NOT NULL AUTO_INCREMENT,
+    meme_id int(10) NOT NULL,
+    content VARCHAR(65535) NOT NULL,
+    image LONGBLOB NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(meme_id) REFERENCES MemePage(id) ON DELETE CASCADE
+);

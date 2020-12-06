@@ -1,17 +1,26 @@
 {
-  "name": "giphytermproject",
+  "name": "nodejs_login",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Node JS Login And Registration System",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "w3jar.com",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "giphy-random": "^2.0.8"
+    "express-validator": "^6.7.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5"
   }
 }

@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Quiz</title>
+</head>
+<body>
+    <div class = "container">
+        <canvas id=c></canvas>
+        <div id = "overlay">
+       <div id="quiz">
+        <h1>Edit Quiz</h1>
+
+        <form>
+            <label>Quiz Name</label>
+            <input id="quizName" type="text" class="form-control" >
+            <label>Quiz Description</label>
+            <input id="quizDesc" type="text" class="form-control" >
+            <label>Options</label>
+            <p>A : </p>
+            <input id="affinityA" type="text" class="form-control" >
+            <p>B : </p>
+            <input id="affinityB"id="affinityA" type="text" class="form-control" >
+            <p>C : </p>
+            <input id="affinityC" type="text" class="form-control" >
+            <p>D : </p>
+            <input id="affinityD" type="text" class="form-control" >
+            <br/><br/>
+            <div id="qus_holder">
+                <div class = "Question" id="1">
+                        <p>Enter the quetion</p>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Question</label>
+                            <input type="text" class="form-control"  aria-describedby="emailHelp">
+                            <input type="file" accept="image/*" >
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">A
+                            <input type="text" class="form-control" >
+                        </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">B
+                            <input type="text" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">C
+                            <input type="text" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">D
+                            <input type="text" class="form-control" >
+                        </div>
+                </div>
+            </div>
+    
+            <button class="add btn btn-primary" type="button" onclick="new_link()" >Add</button>
+            <button type="submit"  class="btn btn-primary" id="formSubmit">Submit</button>
+        
+        </div>
+        </form>
+        <script>
+            /*
+            This script is identical to the above JavaScript function.
+            */
+            var ct = 1;
+            var height = 1150;
+            function new_link()
+            {
+                ct++;
+                height = height+500;
+                console.log(ct)
+                var div1 = document.createElement('div');
+                div1.id = ct;
+                // link to delete extended form elements
+                var delLink = '<div style="text-align:right;margin-right:65px"><a href="javascript:delIt('+ ct +')">Del</a></div>';
+                div1.innerHTML = document.getElementById('1').innerHTML + delLink;
+                document.getElementById('qus_holder').appendChild(div1);
+                console.log(height +"px");
+                document.getElementById('c').style.height = height +"px";
+            }
+            // function to delete the newly added set of elements
+            function delIt(eleId)
+            {
+                d = document;
+                var ele = d.getElementById(eleId);
+                var parentEle = d.getElementById('qus_holder');
+                parentEle.removeChild(ele);
+            }
+            </script>
+       </div>
+       <button id="submit">Update Quiz</button>
+       <button id="cancel">Back</button>
+      </div>
+    </div>
+    <script src = "../js/Profile.js"></script>
+    <script src = "../js/myQuizzes.js"></script>
+</body>
+</html>
